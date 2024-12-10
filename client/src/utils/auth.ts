@@ -3,6 +3,9 @@ import { JwtPayload, jwtDecode } from 'jwt-decode';
 class AuthService {
   getProfile() {
     // TODO: return the decoded token
+    const token = this.getToken();
+    const decodedToken = jwtDecode<JwtPayload>(token);
+    return decodedToken;
   }
 
   loggedIn() {
@@ -13,7 +16,9 @@ class AuthService {
   
   isTokenExpired(token: string) {
     // TODO: return a value that indicates if the token is expired
-
+    const decodedToken = jwtDecode<JwtPayload>(token);
+    const currentTime = Date.now() / 1000;
+    return decodedToken.exp && decodedToken.exp < currentTime;
   }
 
   getToken(): string {
