@@ -11,6 +11,8 @@
 - npm run build
 - npm start:dev
 
+- Link to deployed website: https://kanban-board-ewu5.onrender.com
+
 ## Credits
 
 - Drew DeMarois
